@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scout voor Europa - Frans Voetbalgame</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <h1>Scout voor Europa</h1>
+        <p class="subtitle">Leer Frans via penalty’s, dribbels en metro-missies</p>
+      </div>
+      <div class="profile-card">
+        <div class="avatar">⚽</div>
+        <div>
+          <strong id="playerName">Jonge Spits</strong>
+          <span id="clubName">Straatteam Brussel</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Speler</h2>
+          <div class="stat-row"><span>XP</span><strong id="xp">0</strong></div>
+          <div class="stat-row"><span>Munten</span><strong id="coins">0</strong></div>
+          <div class="stat-row"><span>Trofeeën</span><strong id="trophies">0</strong></div>
+          <div class="stat-row"><span>Kaarten</span><strong id="cards">0</strong></div>
+          <div class="stat-row"><span>Uitrusting</span><strong id="gear">Basisschoenen</strong></div>
+        </section>
+
+        <section class="panel">
+          <h2>Competities</h2>
+          <div id="leagueList" class="league-list"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Foutenanalyse</h2>
+          <p id="mistakeSummary">Nog geen fouten. Start een missie.</p>
+          <button id="retryMistakesBtn" class="secondary-btn">Oefen mijn fouten</button>
+        </section>
+      </aside>
+
+      <section class="game-area">
+        <div id="screen-home" class="screen active">
+          <div class="hero">
+            <div>
+              <p class="eyebrow">Campagne</p>
+              <h2>Word ontdekt door Franse scouts</h2>
+              <p>
+                Reis door Franse steden, win voetbalmissies en oefen Franse woorden,
+                richtingen en zinnen op A1-niveau.
+              </p>
+              <button id="startBtn" class="primary-btn">Start campagne</button>
+            </div>
+            <div class="stadium-card">
+              <div class="stadium">🏟️</div>
+              <strong>Missiekaart</strong>
+              <span>Penalty Shooter • Dribbel Challenge • Metro Cup</span>
+            </div>
+          </div>
+
+          <div class="info-grid">
+            <article>
+              <h3>Beloning</h3>
+              <p>XP, munten, trofeeën, voetbalkaarten, uitrusting en nieuwe clubs.</p>
+            </article>
+            <article>
+              <h3>Herhaling</h3>
+              <p>Foute antwoorden komen terug in een persoonlijke rematch.</p>
+            </article>
+            <article>
+              <h3>Frans</h3>
+              <p>Woordenschat, lidwoorden, richtingen en korte communicatieve zinnen.</p>
+            </article>
+          </div>
+        </div>
+
+        <div id="screen-map" class="screen">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Campagnekaart</p>
+              <h2>Kies een missie</h2>
+            </div>
+            <button id="resetBtn" class="secondary-btn">Reset spel</button>
+          </div>
+          <div id="missionGrid" class="mission-grid"></div>
+        </div>
+
+        <div id="screen-mission" class="screen">
+          <div class="mission-header">
+            <div>
+              <p id="missionLeague" class="eyebrow"></p>
+              <h2 id="missionTitle"></h2>
+              <p id="missionGoal"></p>
+            </div>
+            <div class="score-box">
+              <span>Vraag</span>
+              <strong><span id="questionIndex">1</span>/<span id="questionTotal">5</span></strong>
+            </div>
+          </div>
+
+          <div id="gameVisual" class="game-visual penalty">
+            <div class="field-lines"></div>
+            <div id="playerIcon" class="player-icon">⚽</div>
+            <div id="keeperIcon" class="keeper-icon">🧤</div>
+            <div id="goalText" class="goal-text">Doelpunt?</div>
+          </div>
+
+          <div class="question-card">
+            <p id="questionPrompt" class="question"></p>
+            <div id="answerOptions" class="answers"></div>
+            <div id="feedback" class="feedback"></div>
+          </div>
+
+          <div class="mission-actions">
+            <button id="nextBtn" class="primary-btn hidden">Volgende vraag</button>
+            <button id="backToMapBtn" class="secondary-btn">Terug naar missies</button>
+          </div>
+        </div>
+
+        <div id="screen-result" class="screen">
+          <div class="result-card">
+            <p class="eyebrow">Wedstrijdverslag</p>
+            <h2 id="resultTitle">Missie voltooid</h2>
+            <p id="resultText"></p>
+            <div class="reward-grid">
+              <div><span>XP</span><strong id="rewardXp">0</strong></div>
+              <div><span>Munten</span><strong id="rewardCoins">0</strong></div>
+              <div><span>Trofee</span><strong id="rewardTrophy">-</strong></div>
+              <div><span>Kaart</span><strong id="rewardCard">-</strong></div>
+            </div>
+            <button id="continueBtn" class="primary-btn">Verder naar campagne</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
